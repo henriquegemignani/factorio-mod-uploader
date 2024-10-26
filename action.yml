@@ -21,13 +21,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Dependencies
-      shell: bash
-      run: python -m pip install requests
-
     - name: Upload
       shell: bash
-      run: python uploader.py ${{ inputs.zip_file }}
+      run: python "${{ github.action_path }}/uploader.py" "${{ inputs.zip_file }}"
       env:
         MOD_UPLOAD_API_KEY: ${{ inputs.api_key }}
         
