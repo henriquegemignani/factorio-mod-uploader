@@ -27,5 +27,7 @@ runs:
 
     - name: Upload
       shell: bash
-      run: python uplader.py
+      run: python uploader.py ${{ inputs.zip_file }}
+      env:
+        MOD_UPLOAD_API_KEY: ${{ inputs.api_key }}
         
